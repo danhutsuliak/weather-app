@@ -169,5 +169,8 @@ footer {
   height: 60px;
   background: #3f5981;
   padding-top: 23px;
-  padding-left: 23px;
+}
+
+footer a {
+  margin-left: 23px;
 }
