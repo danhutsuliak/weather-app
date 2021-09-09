@@ -1,0 +1,173 @@
+body {
+  font-family: "Cabin", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  background: #6a91cb;
+}
+
+body * {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  height: 80px;
+  margin: 0;
+  padding-left: 23px;
+  background: #3d76cc;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  margin-top: 23px;
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.btn {
+  height: 60px;
+  width: 60px;
+  margin-right: 15px;
+  margin-top: 10px;
+  background: url("./img/refresh-btn.png");
+}
+
+.weather {
+  margin: auto;
+  padding-top: 50px;
+  width: 400px;
+  height: 300px;
+}
+
+.weather p {
+  display: block;
+}
+
+.weather h2 {
+  font-weight: 400;
+  font-size: 48px;
+  margin: auto;
+}
+
+.weather .weather-state {
+  position: absolute;
+  margin-top: 163px;
+}
+
+.weather .main-img {
+  width: 124px;
+  height: 124px;
+  margin-top: 25px;
+  margin-left: 0px;
+  position: absolute;
+}
+
+.weather .degree {
+  font-size: 144px;
+  position: absolute;
+  margin-left: 120px;
+  display: inline;
+}
+
+.weather .celsius {
+  position: absolute;
+  margin-left: 340px;
+  margin-top: 30px;
+  font-size: 48px;
+}
+
+.weather .fahrenheit {
+  position: absolute;
+  margin-left: 346px;
+  margin-top: 80px;
+  font-size: 36px;
+  color: #dadada;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+.daily {
+  margin: auto;
+  width: 1470px;
+  height: 292px;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  width: 1470px;
+  height: 230px;
+  margin-top: 20px;
+}
+
+.card {
+  width: 144px;
+  height: 200px;
+  background: #90b5ec;
+  padding: 15px;
+  overflow: hidden;
+}
+
+.card .text {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.card .date {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.card img {
+  margin-top: 15px;
+  width: 50px;
+  height: 50px;
+}
+
+.card .degree {
+  font-size: 36px;
+}
+
+@media only screen and (max-width: 1536px) {
+  body {
+    zoom: 75%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .daily {
+    width: 85%;
+    height: 302px;
+  }
+
+  .card-wrapper {
+    overflow-x: scroll;
+  }
+}
+
+/* footer {
+  height: 60px;
+  width: 100%;
+  padding-top: 23px;
+  padding-left: 23px;
+  background: #3f5981;
+  position: absolute; */
+/* } */
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background: #3f5981;
+  padding-top: 23px;
+  padding-left: 23px;
+}
