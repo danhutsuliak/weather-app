@@ -7,8 +7,14 @@ const place = document.querySelector('#place');
 const weatherState = document.querySelector('.weather-state');
 const image = document.querySelector('.main-img');
 const cards = document.querySelectorAll('.card');
+const modal = document.getElementById("myModal");
 
 let weather = {};
+
+const modalShow = (text) => {
+  modal.style.display = 'block';
+  modal.firstElementChild.firstElementChild.textContent = text;
+}
 
 const getWeather = async (coords) => {
   const response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${coords.lat}&lon=${coords.lon}&exclude=minutely,hourly,alerts&appid=${API_Key}&units=${units}`);
@@ -19,7 +25,6 @@ const getWeather = async (coords) => {
   if (data.error_message) {
     throw new Error(data.error_message);
   }
-  // console.log(data);
   return data;
 }
 
@@ -28,7 +33,6 @@ const render = () => {
   weatherState.textContent = weather.current.weather[0].description[0].toUpperCase() + weather.current.weather[0].description.slice(1);
   image.src = `http://openweathermap.org/img/w/${weather.current.weather[0].icon}.png`;
 
-  // console.log(weather.daily);
   for (let i = 0; i < cards.length; i++) {
     const date = new Date(weather.daily[i].dt * 1000).toDateString();
     cards[i].querySelector('.date').textContent = date.slice(0, 3) + date.slice(7, 10);
@@ -38,7 +42,8 @@ const render = () => {
   }
 }
 
-const refreshHandler = () => {
+const refresh = () => {
+  modalShow('Please wait...');
   navigator.geolocation.getCurrentPosition(
     async (successResult) => {
       const coordinates = {
@@ -47,12 +52,13 @@ const refreshHandler = () => {
       }
       weather = await getWeather(coordinates);
       render();
+      modal.style.display = 'none';
     },
     error => {
-      alert('Could not locate you!');
+      modalShow('Error! ' + error.message);
     }
   );
 }
 
-window.addEventListener('DOMContentLoaded', refreshHandler);
-btn.addEventListener('click', refreshHandler);
+refresh();
+btn.addEventListener('click', refresh);
